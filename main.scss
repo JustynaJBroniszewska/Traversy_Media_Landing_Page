@@ -1,1 +1,81 @@
- 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: black;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.spacing>*+* {
+    margin-top: var(--spacer, 2rem);
+}
+
+.container {
+    width: 85%;
+    max-width: 65em;
+    margin: 0 auto;
+}
+
+.btn {
+    font-weight: 700;
+    display: inline-block;
+    padding: .25em 1.25em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: .25em;
+    background-color: var(--clr-accent, blue);
+    color: var(--clr-text, white);
+    transition:
+        transform 250ms ease-in-out,
+        transform 250ms linear,
+}
+
+.btn:hover,
+.btn:focus {
+    transform: scale(1.1);
+    opacity: .9;
+}
+
+.introduction {
+    text-align: center;
+    padding: 15em 0;
+    background-color: #222;
+    color: var(--clr-text, white);
+
+    // https://developer.mozilla.org/pl/docs/Web/CSS/@supports
+    @supports(background-blend-mode: multiply) {
+
+        background:
+            url(img/shoe-3.png),
+            radial-gradient(#444, #111);
+        background-blend-mode: multiply;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+
+    .title {
+        font-size: 4em;
+        font-size: clamp(3rem, calc(5vw +1rem), 4.5rem);
+        line-height: 1;
+        text-transform: uppercase;
+    }
+}
