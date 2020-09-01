@@ -53,6 +53,22 @@ img {
     opacity: .9;
 }
 
+.section {
+    padding: 7em 0;
+}
+
+.split {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &>* {
+        flex-basis: 30%;
+        min-width: 15em;
+    }
+}
+
 .introduction {
     text-align: center;
     padding: 15em 0;
@@ -74,8 +90,61 @@ img {
 
     .title {
         font-size: 4em;
-        font-size: clamp(3rem, calc(5vw +1rem), 4.5rem);
+        font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem);
         line-height: 1;
         text-transform: uppercase;
+    }
+}
+
+.featured {
+    .title {
+        font-size: clamp(2.5rem, calc(5vw + 1rem), 4rem);
+        margin: 5rem 0;
+        line-height: 1;
+        text-align: center;
+        color: #17353d;
+    }
+
+    &__item {
+        position: relative;
+        line-height: 1.2;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: #333;
+        transform: scale(.85);
+        transition: transform 250ms ease-in-out;
+
+        &:hover,
+        &:focus {
+            transform: scale(1);
+
+            .featured__details {
+                opacity: 1;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            padding: 75% 75% 0 0; //https://css-tricks.com/aspect-ratio-boxes/
+            border-radius: 50%;
+            background: #2193b0;
+            z-index: -1;
+        }
+
+        .featured__details {
+            opacity: 0;
+            transition: opacity 250ms linear;
+            text-shadow: 0 0 2em rgba(#fff, 1);
+
+            span {
+                display: block;
+                font-weight: 700;
+                font-size: 2.5rem;
+            }
+        }
     }
 }
